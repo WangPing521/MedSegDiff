@@ -6,7 +6,7 @@ CC_wrapper(){
     account=$2
     command=$3
     mem=$4
-    module load python/3.10
+    module load python/3.8
     source $HOME/DA_tumor_venv/bin/activate
     module load scipy-stack
 	module load cmake
