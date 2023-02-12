@@ -501,7 +501,7 @@ class GaussianDiffusion:
         model,
         shape,
         img,
-        step = 1000,
+        step = 200,
         org=None,
         noise=None,
         clip_denoised=True,
