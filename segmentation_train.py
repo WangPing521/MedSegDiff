@@ -1,15 +1,7 @@
-
-import sys
 import argparse
-
 from utils.datasets.UDA.mmwhs import CTInterface, MRInterface
-
-sys.path.append("")
-sys.path.append("scripts")
 from guided_diffusion import dist_util, logger
 from guided_diffusion.resample import create_named_schedule_sampler
-from guided_diffusion.bratsloader import BRATSDataset
-from guided_diffusion.isicloader import ISICDataset
 from guided_diffusion.script_util import (
     model_and_diffusion_defaults,
     create_model_and_diffusion,
@@ -98,7 +90,7 @@ def create_argparser():
         lr=1e-4,
         weight_decay=0.0,
         lr_anneal_steps=0,
-        batch_size=2,
+        batch_size=1,
         microbatch=-1,  # -1 disables microbatches
         ema_rate="0.9999",  # comma-separated list of EMA values
         log_interval=100,
@@ -108,7 +100,7 @@ def create_argparser():
         fp16_scale_growth=1e-3,
         gpu_dev = "0",
         multi_gpu = None, #"0,1,2"
-        out_dir='./results/'
+        out_dir='results'
     )
     defaults.update(model_and_diffusion_defaults())
     parser = argparse.ArgumentParser()
