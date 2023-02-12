@@ -102,8 +102,8 @@ def main():
         # c = th.randn_like(b[:, :1, ...])
 
         val_data, path = next(data)
-        b = val_data[0]
-        c = th.randn_like(val_data[1].float())
+        b = val_data[0] # img 1,1,h,w
+        c = th.randn_like(val_data[1].float()) # noise 1,1,h,w
 
 
         img = th.cat((b, c), dim=1)  # add a noise channel$
@@ -133,7 +133,7 @@ def main():
             th.cuda.synchronize()
             print('time for 1 sample', start.elapsed_time(end))  # time measurement for the generation of 1 sample
 
-            co = th.tensor(cal_out).repeat(1, 3, 1, 1)
+            co = th.tensor( ).repeat(1, 3, 1, 1)
             enslist.append(co)
 
             if args.debug:
@@ -163,7 +163,7 @@ def create_argparser():
         gpu_dev="0",
         out_dir='./results_infer/',
         multi_gpu=None,  # "0,1,2"
-        debug=False
+        debug=True
     )
     defaults.update(model_and_diffusion_defaults())
     parser = argparse.ArgumentParser()
