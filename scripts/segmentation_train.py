@@ -4,8 +4,8 @@ import argparse
 
 from utils.datasets.UDA.mmwhs import CTInterface, MRInterface
 
-sys.path.append("..")
-sys.path.append(".")
+sys.path.append("")
+sys.path.append("scripts")
 from guided_diffusion import dist_util, logger
 from guided_diffusion.resample import create_named_schedule_sampler
 from guided_diffusion.bratsloader import BRATSDataset

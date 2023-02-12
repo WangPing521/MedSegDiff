@@ -8,7 +8,7 @@ import sys
 import random
 from utils.datasets.UDA.mmwhs import CTInterface, MRInterface
 
-sys.path.append(".")
+sys.path.append("")
 import numpy as np
 import time
 import torch as th
