@@ -144,10 +144,10 @@ def main():
                 tup = (o ,s ,c ,co)
 
                 compose = th.cat(tup ,0)
-                vutils.save_image(compose, fp = args.out_dir +str(slice_ID) + '_output' + str(i) + ".jpg", nrow=1,
+                vutils.save_image(compose, fp = os.path.join(args.out_dir, args.out_dir + str(slice_ID) + '_output' + str(i) + ".jpg"), nrow=1,
                                   padding=10)
         ensres = staple(th.stack(enslist, dim=0)).squeeze(0)
-        vutils.save_image(ensres, fp=args.out_dir + str(slice_ID) + '_output_ens' + ".jpg", nrow=1, padding=10)
+        vutils.save_image(ensres, fp= os.path.join(args.out_dir, args.out_dir + str(slice_ID) + '_output_ens' + ".jpg"), nrow=1, padding=10)
 
 
 def create_argparser():
