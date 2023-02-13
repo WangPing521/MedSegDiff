@@ -133,13 +133,13 @@ def main():
             th.cuda.synchronize()
             print('time for 1 sample', start.elapsed_time(end))  # time measurement for the generation of 1 sample
 
-            co = th.tensor( ).repeat(1, 3, 1, 1)
+            co = th.tensor(cal_out)
             enslist.append(co)
 
             if args.debug:
-                s = th.tensor(sample)[: ,-1 ,: ,:].unsqueeze(1).repeat(1, 3, 1, 1)
-                o = th.tensor(org)[: ,:-1 ,: ,:]
-                c = th.tensor(cal).repeat(1, 3, 1, 1)
+                s = sample[: ,-1 ,: ,:].unsqueeze(1)
+                o = org[: ,:-1 ,: ,:]
+                c = cal
 
                 tup = (o ,s ,c ,co)
 
